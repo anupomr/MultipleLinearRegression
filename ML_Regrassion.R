@@ -19,3 +19,18 @@ test_set = subset(dataset, split == FALSE)
 # Fitting Multiple Linear Regression to the training set
 regressor = lm(formula = Profit ~ .,
                data = training_set)
+#Predicting the test set results
+y_pred = predict(regressor, newdata = test_set)
+
+# Building the optimal model uning of Backgroung eleminiation 
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State,
+                  data = dataset)
+summary(regressor)
+
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend,
+               data = dataset)
+summary(regressor)
+
+regressor = lm(formula = Profit ~ R.D.Spend,
+               data = dataset)
+summary(regressor)
