@@ -12,6 +12,17 @@ regressor = svm(formula = Salary ~ .,
                 type = 'eps-regression')
 
 
+# Predicting a new result
+y_pred = predict(regressor, data.frame(Level = 6.5))
 
 
-
+# Visualising the Support Vector  Regression result
+library(ggplot2)
+ggplot() +
+  geom_point(aes(x = dataset$Level, y = dataset$Salary),
+             colour = 'red') +
+  geom_line(aes(x = dataset$Level, y = predict(poly_reg, newdata = dataset)),
+            colour = 'blue') +
+  ggtitle('Support Vector  Regression') +
+  xlab('Level') +
+  ylab('Salary')
