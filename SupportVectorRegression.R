@@ -21,7 +21,7 @@ library(ggplot2)
 ggplot() +
   geom_point(aes(x = dataset$Level, y = dataset$Salary),
              colour = 'red') +
-  geom_line(aes(x = dataset$Level, y = predict(poly_reg, newdata = dataset)),
+  geom_line(aes(x = dataset$Level, y = predict(regressor, newdata = dataset)),
             colour = 'blue') +
   ggtitle('Support Vector  Regression') +
   xlab('Level') +
